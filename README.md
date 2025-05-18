@@ -20,25 +20,39 @@ This project demonstrates a fully integrated DevSecOps pipeline that automates c
 
 ## 📁 Repository Structure
 
-
 project-root/
-├── frontend/ # ⬅️ Frontend application (cloned)
-│ └── Dockerfile
 │
-├── backend/ # ⬅️ Backend application (cloned)
-│ └── Dockerfile
-│
-├── k8s/ # ⬅️ Kubernetes manifests
-│ ├── frontend-deployment.yaml
-│ ├── backend-deployment.yaml
-│ ├── frontend-service.yaml
-│ ├── backend-service.yaml
-│ ├── ingress.yaml
-│
-└── README.md
 
+├── frontend/ # [Frontend application]
+│
 
-🔄 Pipeline Overview
+ |──Dockerfile
+ 
+ |──.dockerignore
+ 
+├── backend/ # [Backend application]
+│
+
+ |──Dockerfile
+ 
+ |──.dockerignore
+ 
+└── k8s-deployment/ # Kubernetes deployment files
+│
+
+ |────────────── frontend-deployment.yaml
+
+ |────────────── backend-deployment.yaml
+
+ |────────────── frontend-service.yaml
+
+ |────────────── backend-service.yaml
+
+ |──────────────ingress.yaml
+
+└── README.md # K8s setup guide
+
+## 🔄 Pipeline Overview
 
 1) Developer pushes code to GitHub
 
@@ -68,7 +82,8 @@ project-root/
 
 11) Slack sends notifications on pipeline results and alerts
 
-🛡️ Security Integration
+
+## 🛡️ Security Integration
 
 ✅ Static Code Analysis (SAST) with SonarQube
 
@@ -83,7 +98,7 @@ project-root/
 
 
 
-📊 Monitoring Stack
+## 📊 Monitoring Stack
 
 Prometheus scrapes metrics from containers and nodes
 
@@ -94,7 +109,7 @@ Alerts can be configured to notify Slack
 
 
 
-🔧 Infrastructure Notes
+## 🔧 Infrastructure Notes
 
 Jenkins, SonarQube, Prometheus, and Grafana run on the same Azure VM
 
@@ -105,7 +120,7 @@ ACR stores Docker images securely for AKS to pull
 
 
 
-🛠️ Requirements
+## 🛠️ Requirements
 
 Azure subscription
 
@@ -123,7 +138,7 @@ Slack Webhook configured for Jenkins
 
 
 
-🙏 Credits :
+## 🙏 Credits :
 
 Frontend Source: https://github.com/harshmangalam/facebook-clone-app-react-client.git
 
@@ -134,7 +149,7 @@ These apps are not developed by me — credit goes to their original authors.
 
 
 
-👨‍💻 Maintainer
+## 👨‍💻 Maintainer
 
 
 Name: Khalid Nazih
