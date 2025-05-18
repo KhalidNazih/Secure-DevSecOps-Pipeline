@@ -20,21 +20,23 @@ This project demonstrates a fully integrated DevSecOps pipeline that automates c
 
 ## 📁 Repository Structure
 
-project-root/
-├── frontend/ # Cloned frontend application
-│ └── Dockerfile # Dockerfile for frontend
-├── backend/ # Cloned backend application
-│ └── Dockerfile # Dockerfile for backend
-├── k8s/ # Kubernetes deployment files
+├── frontend/ # ──⟶ Cloned frontend code with Dockerfile
+│
+├── backend/ # ──⟶ Cloned backend code with Dockerfile
+│
+├── k8s/ # ──⟶ Kubernetes manifests
+│
 │ ├── frontend-deployment.yaml
+│ │
 │ ├── backend-deployment.yaml
+│ │
 │ ├── frontend-service.yaml
+│ │
 │ ├── backend-service.yaml
+│ │
 │ ├── ingress.yaml
-├── jenkins/ # Jenkins pipeline and scripts (if used)
-│ └── jobs.groovy or shell scripts
-├── README.md
-
+│
+└── README.md
 
 
 🔄 Pipeline Overview
@@ -49,11 +51,11 @@ project-root/
 
 5) Runs security scans:
 
-SonarQube (SAST)
+           SonarQube (SAST)
 
-Trivy (SCA)
+           Trivy (SCA)
 
-OWASP ZAP (DAST)
+           OWASP ZAP (DAST)
 
 6) Pushes Docker images to ACR
 
@@ -80,6 +82,7 @@ OWASP ZAP (DAST)
 ✅ Network exposure is minimized via NGINX Ingress rules
 
 📊 Monitoring Stack
+
 Prometheus scrapes metrics from containers and nodes
 
 Grafana visualizes performance dashboards
@@ -87,6 +90,7 @@ Grafana visualizes performance dashboards
 Alerts can be configured to notify Slack
 
 🔧 Infrastructure Notes
+
 Jenkins, SonarQube, Prometheus, and Grafana run on the same Azure VM
 
 AKS handles production-grade deployment and scaling
@@ -94,6 +98,7 @@ AKS handles production-grade deployment and scaling
 ACR stores Docker images securely for AKS to pull
 
 🛠️ Requirements
+
 Azure subscription
 
 Azure VM (Ubuntu 22.04 LTS)
@@ -106,7 +111,8 @@ Domain or public IP for Ingress
 
 Slack Webhook configured for Jenkins
 
-🙏 Credits
+🙏 Credits :
+
 Frontend Source: https://github.com/harshmangalam/facebook-clone-app-react-client.git
 
 Backend Source: https://github.com/harshmangalam/facebook-clone-app-nodejs-server.git
