@@ -20,23 +20,41 @@ This project demonstrates a fully integrated DevSecOps pipeline that automates c
 
 ## 📁 Repository Structure
 
-├── frontend/ # ──⟶ Cloned frontend code with Dockerfile
+project-root/
+├── frontend/
 │
-├── backend/ # ──⟶ Cloned backend code with Dockerfile
+├─────────────────────────────────────────────
 │
-├── k8s/ # ──⟶ Kubernetes manifests
+├── backend/
+│
+├─────────────────────────────────────────────
+│
+├── k8s/
+│
+├─────────────────────────────────────────────
 │
 │ ├── frontend-deployment.yaml
-│ │
+│ |
+├─────────────────────────────────────────────
+│ |
 │ ├── backend-deployment.yaml
-│ │
+│ |
+├─────────────────────────────────────────────
+│ |
 │ ├── frontend-service.yaml
-│ │
+│ |
+├─────────────────────────────────────────────
+│ |
 │ ├── backend-service.yaml
-│ │
+│ |
+├─────────────────────────────────────────────
+│ |
 │ ├── ingress.yaml
-│
+│ |
+├─────────────────────────────────────────────
+│ |
 └── README.md
+
 
 
 🔄 Pipeline Overview
@@ -81,6 +99,9 @@ This project demonstrates a fully integrated DevSecOps pipeline that automates c
 
 ✅ Network exposure is minimized via NGINX Ingress rules
 
+
+
+
 📊 Monitoring Stack
 
 Prometheus scrapes metrics from containers and nodes
@@ -89,6 +110,9 @@ Grafana visualizes performance dashboards
 
 Alerts can be configured to notify Slack
 
+
+
+
 🔧 Infrastructure Notes
 
 Jenkins, SonarQube, Prometheus, and Grafana run on the same Azure VM
@@ -96,6 +120,9 @@ Jenkins, SonarQube, Prometheus, and Grafana run on the same Azure VM
 AKS handles production-grade deployment and scaling
 
 ACR stores Docker images securely for AKS to pull
+
+
+
 
 🛠️ Requirements
 
@@ -111,6 +138,10 @@ Domain or public IP for Ingress
 
 Slack Webhook configured for Jenkins
 
+
+
+
+
 🙏 Credits :
 
 Frontend Source: https://github.com/harshmangalam/facebook-clone-app-react-client.git
@@ -119,7 +150,12 @@ Backend Source: https://github.com/harshmangalam/facebook-clone-app-nodejs-serve
 
 These apps are not developed by me — credit goes to their original authors.
 
+
+
+
 👨‍💻 Maintainer
+
+
 Name: Khalid Nazih
 
 Role: DevOps & Network Engineer
