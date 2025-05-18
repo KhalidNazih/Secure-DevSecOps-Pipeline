@@ -3,62 +3,72 @@ This project demonstrates a fully integrated DevSecOps pipeline that automates c
 
 ❗ Note: The frontend and backend application code used in this project were cloned from public GitHub repositories. My work focuses on the DevSecOps pipeline, infrastructure, automation, and security integration.
 
-🌐 Tech Stack
-Layer	Tools / Services
-CI/CD	Jenkins (on Azure VM)
-Security Scans	SonarQube (SAST), Trivy (SCA), OWASP ZAP (DAST)
-Containers	Docker
-Registry	Azure Container Registry (ACR)
-Orchestration	Azure Kubernetes Service (AKS)
-Ingress	NGINX Ingress Controller + Azure Load Balancer
-Monitoring	Prometheus + Grafana
-Notifications	Slack (via Jenkins Webhooks)
-Source Control	GitHub (cloned app)
+## 🌐 Tech Stack
 
-📁 Repository Structure
-bash
-Copy
-Edit
+| Layer             | Tools / Services                          |
+|------------------|-------------------------------------------|
+| CI/CD            | Jenkins (on Azure VM)                     |
+| Security Scans   | SonarQube (SAST), Trivy (SCA), OWASP ZAP (DAST) |
+| Containers       | Docker                                    |
+| Registry         | Azure Container Registry (ACR)            |
+| Orchestration    | Azure Kubernetes Service (AKS)            |
+| Ingress          | NGINX Ingress Controller + Azure Load Balancer |
+| Monitoring       | Prometheus + Grafana                      |
+| Notifications    | Slack (via Jenkins Webhooks)              |
+| Source Control   | GitHub (cloned app)                       |
+
+
+## 📁 Repository Structure
+
 project-root/
-├── frontend/                  # Cloned frontend code with Dockerfile
-├── backend/                   # Cloned backend code with Dockerfile
-├── k8s/                       # Kubernetes manifests
-│   ├── frontend-deployment.yaml
-│   ├── backend-deployment.yaml
-│   ├── frontend-service.yaml
-│   ├── backend-service.yaml
-│   ├── ingress.yaml
-└── README.md
+├── frontend/ # Cloned frontend application
+│ └── Dockerfile # Dockerfile for frontend
+├── backend/ # Cloned backend application
+│ └── Dockerfile # Dockerfile for backend
+├── k8s/ # Kubernetes deployment files
+│ ├── frontend-deployment.yaml
+│ ├── backend-deployment.yaml
+│ ├── frontend-service.yaml
+│ ├── backend-service.yaml
+│ ├── ingress.yaml
+├── jenkins/ # Jenkins pipeline and scripts (if used)
+│ └── jobs.groovy or shell scripts
+├── README.md
+
 
 
 🔄 Pipeline Overview
-1)Developer pushes code to GitHub
 
-2)Jenkins (hosted on Azure VM) triggers pipeline:
+1) Developer pushes code to GitHub
 
-3)Clones repo
+2) Jenkins (hosted on Azure VM) triggers pipeline:
 
-4)Builds Docker images for frontend & backend
+3) Clones repo
 
-5)Runs security scans:
+4) Builds Docker images for frontend & backend
+
+5) Runs security scans:
 
 SonarQube (SAST)
+
 Trivy (SCA)
+
 OWASP ZAP (DAST)
 
-6)Pushes Docker images to ACR
+6) Pushes Docker images to ACR
 
-7)Deploys to AKS using kubectl and YAML manifests
+7) Deploys to AKS using kubectl and YAML manifests
 
-8)NGINX Ingress Controller (on AKS) handles external access
+8) NGINX Ingress Controller (on AKS) handles external access
 
-9)Azure Load Balancer routes traffic to the Ingress
+9) Azure Load Balancer routes traffic to the Ingress
 
-10)Prometheus and Grafana monitor app and cluster health
+10) Prometheus and Grafana monitor app and cluster health
 
-11)Slack sends notifications on pipeline results and alerts
+11) Slack sends notifications on pipeline results and alerts
 
 🛡️ Security Integration
+
 ✅ Static Code Analysis (SAST) with SonarQube
 
 ✅ Dependency Vulnerability Scan (SCA) with Trivy
