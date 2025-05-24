@@ -1,102 +1,82 @@
-🔐 Secure DevSecOps CI/CD Pipeline – Production-Grade Deployment
-This project demonstrates a fully integrated DevSecOps pipeline that automates code building, scanning, containerization, and deployment to Azure Kubernetes Service (AKS). It incorporates security at every stage of the software development lifecycle.
+:
+
+## 🔐 Secure DevSecOps CI/CD Pipeline – Production-Grade Deployment (GCP Edition)
+This project demonstrates a fully integrated DevSecOps pipeline that automates code building, scanning, containerization, and deployment to Google Kubernetes Engine (GKE). It incorporates security at every stage of the software development lifecycle.
 
 ❗ Note: The frontend and backend application code used in this project were cloned from public GitHub repositories. My work focuses on the DevSecOps pipeline, infrastructure, automation, and security integration.
 
 ## 🌐 Tech Stack
 
-| Layer             | Tools / Services                          |
-|------------------|-------------------------------------------|
-| CI/CD            | Jenkins (on Azure VM)                     |
-| Security Scans   | SonarQube (SAST), Trivy (SCA), OWASP ZAP (DAST) |
-| Containers       | Docker                                    |
-| Registry         | Azure Container Registry (ACR)            |
-| Orchestration    | Azure Kubernetes Service (AKS)            |
-| Ingress          | NGINX Ingress Controller + Azure Load Balancer |
-| Monitoring       | Prometheus + Grafana                      |
-| Notifications    | Slack (via Jenkins Webhooks)              |
-| Source Control   | GitHub (cloned app)                       |
+| Layer           | Tools / Services                                                               |
+|----------------|----------------------------------------------------------------------------------|
+| **CI/CD**       | Jenkins (on GCP Compute Engine)                                                 |
+| **Security Scans** | SonarQube (SAST), Trivy (SCA), OWASP ZAP (DAST)                             |
+| **Containers**   | Docker                                                                         |
+| **Registry**     | Google Artifact Registry                                                       |
+| **Orchestration**| Google Kubernetes Engine (GKE)                                                 |
+| **Ingress**      | NGINX Ingress Controller + Google Cloud Load Balancer                         |
+| **Monitoring**   | Prometheus + Grafana                                                           |
+| **Notifications**| Slack (via Jenkins Webhooks)                                                   |
+| **Source Control**| GitHub (cloned app)                                                          |
 
 
 ## 📁 Repository Structure
 
-project-root/
+Secure-DevSecOps-Pipline/
 │
-
-├── frontend/ # [Frontend application]
+├── frontend/                      # [Frontend application]
+│   ├── Dockerfile
+│   └── .dockerignore
 │
-
- |──Dockerfile
- 
- |──.dockerignore
- 
-├── backend/ # [Backend application]
+├── backend/                       # [Backend application]
+│   ├── Dockerfile
+│   └── .dockerignore
 │
-
- |──Dockerfile
- 
- |──.dockerignore
- 
-└── k8s-deployment/ # Kubernetes deployment files
+└── k8s-deployment/               # Kubernetes deployment files
+    ├── frontend-deployment.yaml
+    ├── backend-deployment.yaml
+    ├── frontend-service.yaml
+    ├── backend-service.yaml
+    └── ingress.yaml
 │
-
- |────────────── frontend-deployment.yaml
-
- |────────────── backend-deployment.yaml
-
- |────────────── frontend-service.yaml
-
- |────────────── backend-service.yaml
-
- |──────────────ingress.yaml
-
-└── README.md # K8s setup guide
+└── README.md                      # GCP setup guide
 
 ## 🔄 Pipeline Overview
 
-1) Developer pushes code to GitHub
+Developer pushes code to GitHub
 
-2) Jenkins (hosted on Azure VM) triggers pipeline:
+Jenkins (hosted on GCP VM) triggers pipeline
 
-3) Clones repo
+Clones repo
 
-4) Builds Docker images for frontend & backend
+Builds Docker images for frontend & backend
 
-5) Runs security scans:
+Runs security scans:
 
-           SonarQube (SAST)
+SonarQube (SAST)
 
-           Trivy (SCA)
+Trivy (SCA)
 
-           OWASP ZAP (DAST)
+OWASP ZAP (DAST)
 
-6) Pushes Docker images to ACR
+Pushes Docker images to Google Artifact Registry
 
-7) Deploys to AKS using kubectl and YAML manifests
+Deploys to GKE using kubectl and YAML manifests
 
-8) NGINX Ingress Controller (on AKS) handles external access
+NGINX Ingress Controller (on GKE) handles external access
 
-9) Azure Load Balancer routes traffic to the Ingress
+Google Cloud Load Balancer routes traffic to the Ingress
 
-10) Prometheus and Grafana monitor app and cluster health
+Prometheus and Grafana monitor app and cluster health
 
-11) Slack sends notifications on pipeline results and alerts
+Slack sends notifications on pipeline results and alerts
 
-
-## 🛡️ Security Integration
-
+🛡️ Security Integration
 ✅ Static Code Analysis (SAST) with SonarQube
-
 ✅ Dependency Vulnerability Scan (SCA) with Trivy
-
 ✅ Dynamic App Security Testing (DAST) with OWASP ZAP
-
 ✅ Jenkins uses credential bindings to secure secrets
-
-✅ Network exposure is minimized via NGINX Ingress rules
-
-
-
+✅ Network exposure is minimized via NGINX Ingress rules and firewall policies
 
 ## 📊 Monitoring Stack
 
@@ -106,57 +86,38 @@ Grafana visualizes performance dashboards
 
 Alerts can be configured to notify Slack
 
-
-
-
 ## 🔧 Infrastructure Notes
 
-Jenkins, SonarQube, Prometheus, and Grafana run on the same Azure VM
+Jenkins, SonarQube, Prometheus, and Grafana run on the same GCP Compute Engine VM
 
-AKS handles production-grade deployment and scaling
+GKE handles production-grade deployment and scaling
 
-ACR stores Docker images securely for AKS to pull
-
-
-
+Artifact Registry securely stores Docker images for GKE to pull
 
 ## 🛠️ Requirements
 
-Azure subscription
+Google Cloud Platform subscription
 
-Azure VM (Ubuntu 22.04 LTS)
+Google Compute Engine VM (Ubuntu 22.04 LTS)
 
-Azure Kubernetes Service (AKS)
+Google Kubernetes Engine (GKE) cluster
 
-Azure Container Registry (ACR)
+Google Artifact Registry
 
 Domain or public IP for Ingress
 
 Slack Webhook configured for Jenkins
 
-
-
-
-
 ## 🙏 Credits :
 
 Frontend Source: https://github.com/harshmangalam/facebook-clone-app-react-client.git
-
 Backend Source: https://github.com/harshmangalam/facebook-clone-app-nodejs-server.git
 
 These apps are not developed by me — credit goes to their original authors.
 
-
-
-
 ## 👨‍💻 Maintainer
 
-
 Name: Khalid Nazih
-
 Role: DevOps & Network Engineer
-
-LinkedIn: https://www.linkedin.com/in/khalid-nazih-b5618b2b6/
-
-
+LinkedIn: linkedin.com/in/khalid-nazih-b5618b2b6
 
