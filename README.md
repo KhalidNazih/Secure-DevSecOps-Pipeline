@@ -53,39 +53,56 @@ Secure-DevSecOps-Pipline/
 └── README.md # K8s setup guide
 ## 🔄 Pipeline Overview
 
-Developer pushes code to GitHub
 
-Jenkins (hosted on GCP VM) triggers pipeline
+1) Developer pushes code to GitHub
 
-Clones repo
 
-Builds Docker images for frontend & backend
+2) Jenkins (hosted on GCP VM) triggers pipeline
 
-Runs security scans:
 
-SonarQube (SAST)
+3) Clones repo
 
-Trivy (SCA)
 
-OWASP ZAP (DAST)
+4) Builds Docker images for frontend & backend
 
-Pushes Docker images to Google Artifact Registry
 
-Deploys to GKE using kubectl and YAML manifests
+5) Runs security scans:
 
-NGINX Ingress Controller (on GKE) handles external access
 
-Google Cloud Load Balancer routes traffic to the Ingress
+ - SonarQube (SAST)
 
-Prometheus and Grafana monitor app and cluster health
 
-Slack sends notifications on pipeline results and alerts
+ - Trivy (SCA)
+
+
+ - OWASP ZAP (DAST)
+
+
+6) Pushes Docker images to Google Artifact Registry
+
+
+7) Deploys to GKE using kubectl and YAML manifests
+
+
+8) NGINX Ingress Controller (on GKE) handles external access
+
+
+9) Google Cloud Load Balancer routes traffic to the Ingress
+
+10) Prometheus and Grafana monitor app and cluster health
+
+11) Slack sends notifications on pipeline results and alerts
 
 🛡️ Security Integration
+
 ✅ Static Code Analysis (SAST) with SonarQube
+
 ✅ Dependency Vulnerability Scan (SCA) with Trivy
+
 ✅ Dynamic App Security Testing (DAST) with OWASP ZAP
+
 ✅ Jenkins uses credential bindings to secure secrets
+
 ✅ Network exposure is minimized via NGINX Ingress rules and firewall policies
 
 ## 📊 Monitoring Stack
@@ -121,6 +138,7 @@ Slack Webhook configured for Jenkins
 ## 🙏 Credits :
 
 Frontend Source: https://github.com/harshmangalam/facebook-clone-app-react-client.git
+
 Backend Source: https://github.com/harshmangalam/facebook-clone-app-nodejs-server.git
 
 These apps are not developed by me — credit goes to their original authors.
@@ -128,6 +146,8 @@ These apps are not developed by me — credit goes to their original authors.
 ## 👨‍💻 Maintainer
 
 Name: Khalid Nazih
+
 Role: DevOps & Network Engineer
+
 LinkedIn: linkedin.com/in/khalid-nazih-b5618b2b6
 
