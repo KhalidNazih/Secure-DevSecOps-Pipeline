@@ -1,5 +1,3 @@
-:
-
 ## 🔐 Secure DevSecOps CI/CD Pipeline – Production-Grade Deployment (GCP Edition)
 This project demonstrates a fully integrated DevSecOps pipeline that automates code building, scanning, containerization, and deployment to Google Kubernetes Engine (GKE). It incorporates security at every stage of the software development lifecycle.
 
@@ -24,23 +22,35 @@ This project demonstrates a fully integrated DevSecOps pipeline that automates c
 
 Secure-DevSecOps-Pipline/
 │
-├── frontend/                      # [Frontend application]
-│   ├── Dockerfile
-│   └── .dockerignore
-│
-├── backend/                       # [Backend application]
-│   ├── Dockerfile
-│   └── .dockerignore
-│
-└── k8s-deployment/               # Kubernetes deployment files
-    ├── frontend-deployment.yaml
-    ├── backend-deployment.yaml
-    ├── frontend-service.yaml
-    ├── backend-service.yaml
-    └── ingress.yaml
-│
-└── README.md                      # GCP setup guide
 
+├── frontend/ # [Frontend application]
+│
+
+ |──Dockerfile
+ 
+ |──.dockerignore
+ 
+├── backend/ # [Backend application]
+│
+
+ |──Dockerfile
+ 
+ |──.dockerignore
+ 
+└── k8s-deployment/ # Kubernetes deployment files
+│
+
+ |────────────── frontend-deployment.yaml
+
+ |────────────── backend-deployment.yaml
+
+ |────────────── frontend-service.yaml
+
+ |────────────── backend-service.yaml
+
+ |──────────────ingress.yaml
+
+└── README.md # K8s setup guide
 ## 🔄 Pipeline Overview
 
 Developer pushes code to GitHub
