@@ -26,16 +26,16 @@ Secure-DevSecOps-Pipline/
 ├── frontend/ # [Frontend application]
 │
 
- |──Dockerfile
+ |───────────────Dockerfile
  
- |──.dockerignore
+ |───────────────.dockerignore
  
 ├── backend/ # [Backend application]
 │
 
- |──Dockerfile
+ |──────────────Dockerfile
  
- |──.dockerignore
+ |──────────────.dockerignore
  
 └── k8s-deployment/ # Kubernetes deployment files
 │
@@ -89,11 +89,14 @@ Secure-DevSecOps-Pipline/
 
 9) Google Cloud Load Balancer routes traffic to the Ingress
 
+
 10) Prometheus and Grafana monitor app and cluster health
+
 
 11) Slack sends notifications on pipeline results and alerts
 
-🛡️ Security Integration
+
+## 🛡️ Security Integration
 
 ✅ Static Code Analysis (SAST) with SonarQube
 
@@ -105,6 +108,7 @@ Secure-DevSecOps-Pipline/
 
 ✅ Network exposure is minimized via NGINX Ingress rules and firewall policies
 
+
 ## 📊 Monitoring Stack
 
 Prometheus scrapes metrics from containers and nodes
@@ -113,6 +117,7 @@ Grafana visualizes performance dashboards
 
 Alerts can be configured to notify Slack
 
+
 ## 🔧 Infrastructure Notes
 
 Jenkins, SonarQube, Prometheus, and Grafana run on the same GCP Compute Engine VM
@@ -120,6 +125,7 @@ Jenkins, SonarQube, Prometheus, and Grafana run on the same GCP Compute Engine V
 GKE handles production-grade deployment and scaling
 
 Artifact Registry securely stores Docker images for GKE to pull
+
 
 ## 🛠️ Requirements
 
@@ -135,6 +141,7 @@ Domain or public IP for Ingress
 
 Slack Webhook configured for Jenkins
 
+
 ## 🙏 Credits :
 
 Frontend Source: https://github.com/harshmangalam/facebook-clone-app-react-client.git
@@ -142,6 +149,7 @@ Frontend Source: https://github.com/harshmangalam/facebook-clone-app-react-clien
 Backend Source: https://github.com/harshmangalam/facebook-clone-app-nodejs-server.git
 
 These apps are not developed by me — credit goes to their original authors.
+
 
 ## 👨‍💻 Maintainer
 
