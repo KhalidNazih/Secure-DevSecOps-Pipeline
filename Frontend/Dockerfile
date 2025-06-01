@@ -1,34 +1,16 @@
-# Use a specific Alpine version that addresses the Trivy vulnerabilities
-FROM alpine:3.21.4
 
-# Install security updates and dependencies
-RUN apk update && apk upgrade && \
-    apk add --no-cache \
-    nginx \
-    nodejs \
-    npm
-
-# Set working directory
+FROM node:18-alpine AS build
 WORKDIR /app
 
-# Copy package files first for better caching
-COPY package*.json ./
-
-# Install dependencies
-RUN npm install
-
-# Copy application files
 COPY . .
 
-# Build the application (include the OpenSSL fix)
-ENV NODE_OPTIONS=--openssl-legacy-provider
+
+RUN npm install
 RUN npm run build
 
-# Configure nginx
-COPY nginx.conf /etc/nginx/nginx.conf
 
-# Expose port 80 (standard HTTP port for ingress)
-EXPOSE 80
+FROM nginx:alpine
+COPY --from=build /app/build /usr/share/nginx/html
 
-# Start nginx in foreground
+EXPOSE 80 
 CMD ["nginx", "-g", "daemon off;"]
