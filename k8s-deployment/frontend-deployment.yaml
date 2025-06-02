@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: europe-west1-docker.pkg.dev/silver-wall-460719-s8/devops-repo/frontend:latest
+        image: europe-west9-docker.pkg.dev/silver-wall-460719-s8/devops-repo/frontend:latest
         ports:
         - containerPort: 80  
         resources:
